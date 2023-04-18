@@ -16,12 +16,12 @@ const Main = () => {
             <div className='layout'>
                 {/* left side */}
 
-                <div className='h-20 bg-green-500'>
+                <div className='border-2'>
                     <Left></Left>
                 </div>
                 {/* main content side */}
 
-                <div className='h-20 bg-gray-500'>
+                <div className=''>
                     <Content></Content>
                 </div>
                 {/* right side */}

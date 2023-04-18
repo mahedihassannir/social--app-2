@@ -2,14 +2,38 @@ import React from 'react';
 import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
 import './rigth.css'
 
+
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
+import app from '../firebase.fonfig';
+
+let auth = getAuth(app)
+
+
+
 const Right = () => {
+
+
+    let onclick = () => {
+        let provider = new GoogleAuthProvider()
+
+        signInWithPopup(auth,provider)
+            .then(res => {
+                let remaniung = res.user
+                console.log(remaniung);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+
     return (
         <div>
             <div className=''>
                 <h2 className='text-lg font-bold pl-[90px]'>login with</h2>
 
                 <div className='grid justify-center mt-3 gap-3'>
-                    <button className='text-blue-400  py-3 border-2 px-7 flex items-center gap-2 '> <FaGoogle ></FaGoogle> login with google</button>
+                    <button onClick={onclick} className='text-blue-400  py-3 border-2 px-7 flex items-center gap-2 '> <FaGoogle ></FaGoogle> login with google</button>
                     <button className='py-3 text-gray-600  border-2 px-7 flex items-center gap-2'> <FaGithub ></FaGithub> login with google</button>
 
                 </div>
